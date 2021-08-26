@@ -1,8 +1,7 @@
 import boto3
 
-AWS_REGION = 'us-east-1'
-EC2_RESOURCE = boto3.resource('ec2', region_name=AWS_REGION)
-INSTANCE_ID = 'i-0bcbd56ef8c468dd5'
+EC2_RESOURCE = boto3.resource('ec2')
+INSTANCE_ID = None
 
 instance = EC2_RESOURCE.Instance(INSTANCE_ID)
 

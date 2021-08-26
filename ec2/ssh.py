@@ -12,6 +12,7 @@ client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 # Connect/ssh to an instance
 
 def set_machine(address):
+    print("Setting machine...")
     client.connect(address, username='ec2-user')
     try:
 
@@ -23,9 +24,10 @@ def set_machine(address):
         print(stdout.read())
         stdin, stdout, stderr = client.exec_command("sudo docker run -d --name docker-nginx  -p 80:80 nginx")
         print(stdout.read())
-        # close the client connection once the job is done
+        print("Machine was successfully set!!!")
     finally:
         try:
+            # close the client connection once the job is done
             client.close()
         except BaseException as ex:
             print(ex)

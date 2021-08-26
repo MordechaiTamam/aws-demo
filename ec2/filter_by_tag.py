@@ -2,8 +2,7 @@
 
 import boto3
 
-AWS_REGION = "us-east-1"
-EC2_RESOURCE = boto3.resource('ec2', region_name=AWS_REGION)
+EC2_RESOURCE = boto3.resource('ec2')
 INSTANCE_NAME_TAG_VALUE = 'my-ec2-instance'
 
 instances = EC2_RESOURCE.instances.filter(

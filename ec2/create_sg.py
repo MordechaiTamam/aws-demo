@@ -5,7 +5,7 @@ def create_security_group(name,ip_addr):
     ec2_client_ = boto3.resource('ec2')
 
     security_group = ec2_client_.create_security_group(
-        Description='Allow inbound SSH traffic',
+        Description='Allow inbound traffic',
         GroupName=name,
         TagSpecifications=[
             {

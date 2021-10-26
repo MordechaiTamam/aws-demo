@@ -1,0 +1,30 @@
+# Getting your public ip:
+curl http://ifconfig.me/ip
+
+# Creating a security group:
+aws ec2 create-security-group --group-name <SECURITY GROUP NAME> --description "My security group"
+
+# Authorize the security group ingress:
+aws ec2 authorize-security-group-ingress \
+    --group-id <SECURITY GROUP NAME> \
+    --protocol all \
+    --port all \
+    --cidr <IP>/32
+
+# Create an instance:
+aws ec2 run-instances --image-id ami-02e136e904f3da870 --count 1 --instance-type t2.micro --key-name ubuntu-devops-experts --security-group-ids <SECURITY GROUP ID>
+
+
+# Get the just created instance public IP
+aws ec2 describe-instances --query 'Reservations[].Instances[].PublicDnsName' --output table
+
+# Deploy Nginx:
+ssh ec2-user@<PUBLIC DNS> 'bash -s' < deploy-nginx.sh
+
+
+# Gett the currently running instances
+aws ec2 describe-instances --query 'Reservations[].Instances[].InstanceId'
+
+# Terminate instances:
+aws ec2 terminate-instances --instance-ids <INSTANCE-ID> --output table
+

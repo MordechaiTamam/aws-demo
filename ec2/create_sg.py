@@ -38,4 +38,7 @@ def create_security_group(name, ip_addr):
 
 
 if __name__ == "__main__":
-    print("AAAA")
+    from requests import get
+    ip = get('http://ifconfig.me/ip').content.decode('utf8')
+    print('My public IP address is: {}'.format(ip))
+    create_security_group("Just my SG",ip)

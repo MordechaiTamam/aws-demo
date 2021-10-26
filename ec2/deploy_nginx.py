@@ -31,3 +31,7 @@ def set_machine(address):
             client.close()
         except BaseException as ex:
             print(ex)
+
+
+if __name__ == "__main__":
+    set_machine("ec2-54-152-187-210.compute-1.amazonaws.com")

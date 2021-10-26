@@ -15,4 +15,15 @@ def create_instance(security_group,key_name):
         BlockDeviceMappings = [{"DeviceName": "/dev/xvda", "Ebs": {"VolumeSize": 10}}]
     )
     instance_ = response[0]
+    print(f"Successfully created instance:\n {instance_}")
     return instance_
+
+
+if __name__ == "__main__":
+    import time
+    instance = create_instance('sg-01e5b345ed804a3e7','ubuntu-devops-experts')
+    instance.wait_until_running()
+    instance.load()
+    print(f"created instance with id: {instance.id}")
+    time.sleep(60)
+    print(instance.public_dns_name)

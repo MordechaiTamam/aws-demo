@@ -1,7 +1,8 @@
 # If you want to run from a container and mount your host configurations (ssh, aws configurations, etc.):
-docker run -it --rm -v ~/.aws:/root/.aws -v ~/.ssh:/root/.ssh ubuntu:latest bash
+docker run -it --rm -v ~/.aws:/root/.aws -v ~/.ssh:/root/.ssh -v <PATH_TO_BOTO3_DEMO_ON_HOST_MACHINE>:/boto3-demo ubuntu:latest bash
 
 apt update -y
+apt install ssh -y
 apt install python3
 apt install python3-pip
 apt install dnsutils

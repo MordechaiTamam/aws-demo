@@ -3,7 +3,7 @@ from create_sg import create_security_group as create_security_group
 import boto3
 import uuid
 import time
-from ssh import set_machine
+from deploy_nginx import set_machine
 ip_addr = input("insert your ip:\n")
 security_group_name = str(uuid.uuid4())[:8]
 

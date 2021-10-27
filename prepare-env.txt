@@ -1,0 +1,14 @@
+# If you want to run from a container and mount your host configurations (ssh, aws configurations, etc.):
+docker run -it --rm -v ~/.aws:/root/.aws -v ~/.ssh:/root/.ssh ubuntu:latest bash
+
+apt update -y
+apt install python3
+apt install python3-pip
+apt install dnsutils
+pip3 install awscli
+pip install -r requirements.txt
+
+# Configure aws cli aliases:
+git clone https://github.com/awslabs/awscli-aliases.git
+mkdir -p ~/.aws/cli
+cp awscli-aliases/alias ~/.aws/cli/alias

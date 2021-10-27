@@ -7,6 +7,7 @@ apt install python3-pip
 apt install dnsutils
 pip3 install awscli
 pip install -r requirements.txt
+aws configure
 
 # Configure aws cli aliases:
 git clone https://github.com/awslabs/awscli-aliases.git

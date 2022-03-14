@@ -21,7 +21,7 @@ def create_instance(security_group,key_name):
 
 if __name__ == "__main__":
     import time
-    instance = create_instance('sg-01e5b345ed804a3e7','ubuntu-devops-experts')
+    instance = create_instance('<ENTER_THE_SECURITY_GROUP_ID>','ubuntu-devops-experts')
     instance.wait_until_running()
     instance.load()
     print(f"created instance with id: {instance.id}")
